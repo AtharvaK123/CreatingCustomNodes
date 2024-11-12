@@ -155,4 +155,5 @@ public class SuperList<E> {
 
     public static void main(String[] args) {
         SuperList<Integer> sL = new SuperList<>();
-        sL.add(10
+    }
+}
