@@ -101,19 +101,20 @@ public class SuperList<E> {
         return size == 0;
     }
 
+    public void clear()
+    {
+		 ListNode<E> current;
+		 while(end != null)
+		 {
+			 current = root.getNext();
+			 root = null;
+			 root = current;
+		 }
+	}
+
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("[");
-        ListNode<E> current = root;
-        while (current != null) {
-            sb.append(current.getValue());
-            if (current.getNext() != null) {
-                sb.append(", ");
-            }
-            current = current.getNext();
-        }
-        sb.append("]");
-        return sb.toString();
+       return "";
     }
 
     public class ListNode<E> {
@@ -153,7 +154,5 @@ public class SuperList<E> {
         }
     }
 
-    public static void main(String[] args) {
-        SuperList<Integer> sL = new SuperList<>();
-    }
+
 }
