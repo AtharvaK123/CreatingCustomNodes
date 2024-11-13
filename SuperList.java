@@ -103,17 +103,39 @@ public class SuperList<E> {
 
     public void clear()
     {
-	 ListNode<E> current;
-	 while(current != null)
-	 {
-		 current = root.getNext();
-		 root.setPrevious(null);
-		 root.setNext(null);
-		 root = current;
-	 }
-	 root = null;
-	 end = null;
-	 size = 0;
+		 while(root != null)
+		 {
+			 ListNode<E> next = root.getNext();
+			 root.setPrevious(null);
+			 root.setNext(null);
+			 root = next;
+		 }
+		 root = null;
+		 end = null;
+		 size = 0;
+	}
+
+	public E peek()
+	{
+		return root.getValue();
+	}
+
+	public void poll()
+	{
+		ListNode<E> current = root;
+		ListNode<E> next = current.getNext();
+
+		root.setPrevious(null);
+		root.setNext(null);
+		root = next;
+		root.setPrevious(null);
+
+		size--;
+	}
+
+	public void pop()
+	{
+		poll();
 	}
 
     @Override
