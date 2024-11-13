@@ -103,13 +103,17 @@ public class SuperList<E> {
 
     public void clear()
     {
-		 ListNode<E> current;
-		 while(end != null)
-		 {
-			 current = root.getNext();
-			 root = null;
-			 root = current;
-		 }
+	 ListNode<E> current;
+	 while(current != null)
+	 {
+		 current = root.getNext();
+		 root.setPrevious(null);
+		 root.setNext(null);
+		 root = current;
+	 }
+	 root = null;
+	 end = null;
+	 size = 0;
 	}
 
     @Override
