@@ -117,7 +117,13 @@ public class SuperList<E> {
 
 	public E peek()
 	{
-		return root.getValue();
+		ListNode<E> current = root;
+		if(root == null)
+		{
+			current = null;
+			System.out.println("Array Out of Bounds");
+		}
+		return current.getValue();
 	}
 
 	public void poll()
